@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background-color:#eeeeee;}
+#outer{
+	margin-left:40px;
+	margin-top:40px;}
+#canvas1{
+	border:3px red solid;
+	background-color:#FFFFFF;
+    }
+#canvas2{
+	border:3px blue solid;
+	background-color:#FFFFFF;
+    }
+#canvas3{
+	border:3px green solid;
+	background-color:#FFFFFF;
+    }
+#canvas4{
+	border:3px orange solid;
+	background-color:#FFFFFF;
+    }
+#c1 {
+	position: absolute;
+	left:50px;
+	top:50px;
+}
+#c2 {
+	position: absolute;
+	left:50px;
+	top:350px;
+}
+#c3 {
+	position: absolute;
+	left:350px;
+	top:50px;
+	}
+#c4 {
+	position: absolute;
+	left:350px;
+	top:350px;
+}
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<div id="c1">
+	<canvas id="canvas1" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+    <div id="c2">
+	<canvas id="canvas2" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+    <div id="c3">
+	<canvas id="canvas3" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+    <div id="c4">
+	<canvas id="canvas4" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+</div>
+<script>
+var mycanvas1=document.getElementById("canvas1");
+var cntx1=mycanvas1.getContext('2d');
+var mycanvas2=document.getElementById("canvas2");
+var cntx2=mycanvas2.getContext('2d');
+var mycanvas3=document.getElementById("canvas3");
+var cntx3=mycanvas3.getContext('2d');
+var mycanvas4=document.getElementById("canvas4");
+var cntx4=mycanvas4.getContext('2d');
+
+//多行文本
+cntx1.font="1em sans-sarif";
+cntx1.fillStyle="red";//"red"
+for(i=0;i<=200;i+=20){
+cntx1.fillText("因为有钱，所以任性",10,i);
+}
+
+//垂直文本-每个字符放在前一个字符之下
+cntx2.font="1em sans-sarif";
+vertical("因",20);
+vertical("为",40);
+vertical("有",60);
+vertical("钱",80);
+vertical("，",100);
+vertical("所",120);
+vertical("以",140);
+vertical("任",160);
+vertical("性",180);
+function vertical(letter,position){
+	cntx2.fillText(letter,90,position);
+	}
+	
+//阴影文本-通过位置和透明度实现-轮廓的阴影效果
+cntx3.font="3em sans-sarif";
+cntx3.strokeStyle='rgb(136,136,136)';
+cntx3.strokeText("因为有钱，所以任性",20,100);
+cntx3.strokeStyle='rgba(136,136,136,0.5)';
+cntx3.strokeText("因为有钱，所以任性",22,102);
+cntx3.strokeStyle='rgba(136,136,136,0.25)';
+cntx3.strokeText("因为有钱，所以任性",24,104);
+
+//填充文本的阴影效果
+cntx4.font="3em sans-sarif";
+cntx4.fillStyle='rgb(27,27,27)';
+cntx4.fillText("因为有钱，所以任性",20,100);
+cntx4.fillStyle='rgba(27,27,27,0.5)';
+cntx4.fillText("因为有钱，所以任性",22,102);
+cntx4.fillStyle='rgba(27,27,27,0.25)';
+cntx4.fillText("因为有钱，所以任性",24,104);
+
+</script>
+</body>
+</html>

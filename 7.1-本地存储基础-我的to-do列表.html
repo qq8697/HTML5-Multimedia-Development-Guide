@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<p>这学期的任务列表</p>
+Task 1 <input type="text" id="task1"/>
+<br/>
+<input type="button" value="保存任务" onClick="save('task1');"><!--这里的参数需要单引号-->
+<input type="button" value="取得任务" onClick="get('task1');"><!--函数的分号不可以少-->
+<input type="button" value="清除任务" onClick="qingchu('task1');"><!--方法名不能叫clear-->
+<br/><br/>
+Task 2 <input type="text" id="task2"/>
+<br/>
+<input type="button" value="保存任务" onClick="save('task2');">
+<input type="button" value="取得任务" onClick="get('task2');">
+<input type="button" value="清除任务" onClick="qingchu('task2');">
+
+<br/><br/>
+Task 3 <input type="text" id="task3"/>
+<br/>
+<input type="button" value="保存任务" onClick="save('task3');">
+<input type="button" value="取得任务" onClick="get('task3');">
+<input type="button" value="清除任务" onClick="qingchu('task3');">
+<br/><br/>
+Task 4 <input type="text" id="task4"/>
+<br/>
+<input type="button" value="保存任务" onClick="save('task4');">
+<input type="button" value="取得任务" onClick="get('task4');">
+<input type="button" value="清除任务" onClick="qingchu('task4');">
+<br/>
+<script>
+function save(task){
+	var taskdetail=document.getElementById(task).value;<!--这里的参数不需要双引号-->
+	localStorage.setItem(task,taskdetail);
+	alert("任务设置成功");
+	}
+function get(task){
+	document.getElementById(task).value=localStorage.getItem(task);
+	alert("已获取任务");
+	}
+function qingchu(task){
+	alert("已清除任务");
+	localStorage.removeItem(task);
+	document.getElementById(task).value="";
+	}
+</script>
+</body>
+</html>

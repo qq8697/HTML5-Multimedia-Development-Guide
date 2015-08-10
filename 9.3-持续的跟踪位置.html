@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>HTML 5 Geolocation</title> 
+<script>
+var watchOperation;
+function stopTracking(){
+	navigator.geolocation.clearWatch(watchOperation);
+}
+function findYou(){
+	watchOperation = navigator.geolocation.watchPosition(showPosition,
+ noLocation, {maximumAge : 60000, timeout : 30000});
+	}
+	
+function addRow(lat, lon, acc, tim){
+    var tbody = document.getElementById("posTable");
+    var row = document.createElement("TR");
+    var tdlat = document.createElement("TD");
+    tdlat.appendChild(document.createTextNode(lat));
+    var tdlon = document.createElement("TD");
+	tdlon.appendChild(document.createTextNode(lon));
+	var tdacc = document.createElement("TD");
+	tdacc.appendChild(document.createTextNode(acc));
+	var tdtim = document.createElement("TD");
+	tdtim.appendChild(document.createTextNode(tim.toString()));
+  
+    row.appendChild(tdlat);
+    row.appendChild(tdlon);
+	row.appendChild(tdacc);
+	row.appendChild(tdtim);
+    tbody.appendChild(row);
+  }
+function showPosition(location)
+	{
+		var latitude = location.coords.latitude;
+		var longitude = location.coords.longitude;
+		var accuracy = location.coords.accuracy;
+		var timestamp = location.timestamp;
+		addRow(latitude, longitude, accuracy, timestamp);
+	}
+function noLocation(locationError)
+	{
+		var errorMessage = document.getElementById("err");
+		switch(locationError.code)
+		{
+		case locationError.PERMISSION_DENIED:
+			errorMessage.innerHTML=
+				"You have denied my request for your location.";
+				break;
+		case locationError.POSITION_UNAVAILABLE:
+			errorMessage.innerHTML=
+				"Your position is not available at this time.";
+				break;
+	 case locationError.TIMEOUT: 
+			errorMessage.innerHTML=
+				"My request for your location took too long.";
+				break;
+		default:
+			errorMessage.innerHTML=
+				"An unexpected error occurred.";
+		}
+	}
+</script>
+</head> 
+<body>
+<h1>Your Location</h1>
+<script>
+	findYou();
+</script>
+
+<form>
+<button onclick="stopTracking();">Stop Tracking!</button>
+</form>
+<table style="width:100%" id="posTable">
+<tr><th>Latitude</th>
+<th>Longitude</th>
+<th>Accuracy</th>
+<th>Timestamp</th>
+</tr>
+</table>
+<p id="err"></p>
+
+
+</body>
+</html>

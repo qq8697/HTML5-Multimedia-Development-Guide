@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background-color:#eeeeee;}
+#outer{
+	margin-left:40px;
+	margin-top:40px;}
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<canvas id="canvas1" width="400" height="400">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    <p>var mycanvas=document.getElementById("canvas1");</p>
+	<p>var cntx=mycanvas.getContext('2d');</p>
+    <p>cntx.beginPath();</p>
+	<p>cntx.arc(200,200,100,0,Math.PI*2,true);</p>
+	<p>cntx.closePath();</p>
+	<p><mark>cntx.lineWidth="4";</mark>//绘制轮廓时轮廓线宽度</p>
+	<p><mark>cntx.strokeStyle="black";</mark>//设置绘图时的使用颜色</p>
+	<p><mark>cntx.stroke();</mark>//cntx已经由路径画了圆的效果，这里直接调用stroke（）绘制</p>
+</div>
+<script>
+var mycanvas=document.getElementById("canvas1");
+var cntx=mycanvas.getContext('2d');
+cntx.fillStyle="#fff"
+cntx.fillRect(0,0,400,400);
+
+//绘制一个中心在（200,200），半径100，黑色的圆形
+cntx.beginPath();
+cntx.arc(200,200,100,0,Math.PI*2,true);
+cntx.closePath();
+cntx.lineWidth="4";
+cntx.strokeStyle="black";
+cntx.stroke();
+
+//绘制一个中心在（200,350），半径100，红色的半圆
+cntx.beginPath();
+cntx.arc(200,350,100,0,Math.PI,false);
+cntx.closePath();
+cntx.lineWidth="2";
+cntx.strokeStyle="red";
+cntx.stroke();
+</script>
+</body>
+</html>

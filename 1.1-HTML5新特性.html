@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.p1{ font-style:oblique}
+del{ color:#FF0000}
+</style>
+</head>
+
+<body>
+<div>
+	<h2>1 新的文档类型 (New Doctype)</h2>
+	<p class="p1">目前许多网页还在使用XHTML 1.0 并且要在第一行像这样声明文档类型：</p>
+   	<p class="p2"> &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</p>
+    <p class="p1">在HTML5中，上面那种声明方式将失效。下面是HTML5中的声明方式：</p>
+    <p class="p2"> &lt;!DOCTYPE html&gt;</p>
+</div>
+
+<div>
+	<h2>2 脚本和链接无需type  (No More Types for Scripts and Links)</h2>
+	<p class="p1">在HTML4或XHTML中，你需要用下面的几行代码来给你的网页添加CSS和JavaScript文件:</p>
+   	<p class="p2"> &lt;link rel="stylesheet" href="path/to/stylesheet.css" <del>type="text/css"</del> /&gt;</p>
+    <p class="p2"> &lt;script <del>type="text/javascript"</del> src="path/to/script.js" &gt;</p>
+    <p class="p2"> &lt;/script&gt;</p>
+    <p class="p1">而在HTML5中，你不再需要指定类型属性:</p>
+</div>
+
+<div>
+	<h2>3 语义Header和Footer (The Semantic Header and Footer)</h2>
+	<p class="p1">在HTML4或XHTML中，你需要用下面的代码来声明"Header"和"Footer":</p>
+   	<p class="p2"> &lt;div id="header"&gt;&lt;/div&gt;</p>
+    <p> &lt;div id="footer"&gt;&lt;/div&gt;</p>
+    <p class="p1">在HTML5中，有两个可以替代上述声明的元素，这可以使代码更简洁:</p>
+    <p class="p2"> &lt;header&gt;&lt;/header&gt;</p>
+    <p class="p2"> &lt;footer&gt;&lt;/footer&gt;</p>
+</div>
+
+<div>
+	<h2>4 Hgroup</h2>
+	<p class="p1">在HTML5中，有许多新引入的元素，hgroup就是其中之一。假设我的网站名下面紧跟着一个子标题，
+    我可以用&lt;h1&gt;和&lt;h2&gt;标签来分别定义。然而，这种定义没有说明这两者之间的关系。而且，h2标签的使用会带来更多问题，比如该页面上还有其他标题的时候。
+在HTML5中，我们可以用hgroup元素来将它们分组，这样就不会影响文件的大纲:</p>
+   	<p class="p2"> &lt;head&gt;</p>
+    <p class="p2"> &nbsp;&lt;hgroup&gt;</p>
+    <p class="p2"> &nbsp;&nbsp;&lt;h1&gt;&lt;/h1&gt;</p>
+    <p class="p2"> &nbsp;&nbsp;&lt;h2&gt;&lt;/h2&gt;</p>
+    <p class="p2"> &nbsp;&lt;/hgroup&gt;</p>
+    <p class="p2"> &lt;/head&gt;</p>
+</div>
+
+<div>
+	<h2>5 标记元素 (Mark Element)</h2>
+	<p class="p1">你可以把它当做高亮标签。被这个标签修饰的字符串应当和用户当前的行动相关。比如说，当我在某博客中搜索“Open your Mind”时，
+    我可以利用一些JavaScript将出现的词组用&lt;mark&gt;修饰一下：</p>
+   	<p class="p2">They were interrupted, just after Quato said, <mark>Open your Mind</mark></p>
+</div>
+
+<div>
+	<h2>6 图形元素 (Figure Element)</h2>
+	<p class="p1">在HTML4或XHTML中，下面的这些代码被用来修饰图片的注释：</p>
+    <p class="p2"> &nbsp;&lt;img src="" alt=""/&gt;</p>
+    <p class="p2"> &nbsp;&lt;p&gt;This is an image of something interesting.&lt;/p&gt;</p>
+    <p class="p1">然而，上述代码没有将文字和图片内在联系起来。因此，HTML5引入了&lt;figure&gt;元素。当和&lt;figcaption&gt;
+    结合起来后，我们可以语义化地将注释和相应的图片联系起来：</p>
+   	<p class="p2"> &lt;figure&gt;</p>
+    <p class="p2"> &nbsp;&lt;img src="" alt=""/&gt;</p>
+    <p class="p2"> &nbsp;&lt;figcaption&gt;</p>
+    <p class="p2"> &nbsp;&nbsp;&lt;p&gt;This is an image of something interesting.&lt;/p&gt;</p>
+    <p class="p2"> &nbsp;&lt;/figcation&gt;</p>
+    <p class="p2"> &lt;/figure&gt;</p>
+</div>
+
+<div>
+	<h2>7 重新定义&lt;small&gt; (Small Element redefined)</h2>
+	<p class="p1">在HTML4或XHTML中，，&lt;small&gt;元素已经存在。然而，却没有如何正确使用这一元素的完整说明：</p>
+    <p class="p1">HTML5中，&lt;small&gt;被用来定义小字。试想下你网站底部的版权状态，根据对此元素新的HTML5定义，，&lt;small&gt;可以正确地诠释这些信息：</p>
+    <p class="p2"> 把百度设为主页（正常）<small>关于百度About Baidu ©2014 Baidu（小字）</small></p>
+</div>
+
+<div>
+	<h2>8 占位符 (Placeholder)</h2>
+	<p class="p1">在HTML4或XHTML中，你需要用JavaScript来给文本框添加占位符。比如，你可以提前设置好一些信息，当用户开始输入时，文本框中的文字就消失：</p>
+    <p class="p1">而在HTML5中，新的“placeholder”就简化了这个问题：该属性提供可描述输入字段预期值的提示信息（hint）。
+    该提示会在输入字段为空时显示，并会在字段获得焦点时消失。</p>
+    <form method="post" action="">
+    <label for="name"> 姓名: </label>
+    <input type="text"  id="name" placeholder="请在这里输入你的名字"/>
+    </form>
+</div>
+
+<div>
+	<h2>9 必要属性 (Required Attribute)</h2>
+	<p class="p1">HTML5中的新属性“required”指定了某一输入是否必需。有两种方法声明这一属性：</p>
+   	<p class="p2"> &lt;input type="text" name="someInput" required/&gt;</p>
+    <p class="p2"> &lt;input type="text" name="someInput" required="required"/&gt;</p>
+    <p class="p1">当文本框被指定必需时，如果空白的话表格就不能提交。下面是一个如何使用的例子：</p>
+	<form method="post" action=""> 
+		<label for="name"> 姓名: </label> 
+		<input type="text" id="name" name="name" placeholder="请在这里输入你的名字" required> 
+	<button type="submit">Go</button> 
+	</form>
+    <p class="p1">在上面那个例子中，如果输入内容空且表格被提交，输入框将被高亮显示：</p>
+</div>
+
+<div>
+	<h2>10 Autofocus 属性 (Autofocus Attribute)</h2>
+	<p class="p1">同样，HTML5的解决方案消除了对JavaScript的需要。如果一个特定的输入应该是“选择”或聚焦，
+    默认情况下，我们现在可以利用自动聚焦属性：</p>
+   	<p class="p2"> &lt;input type="text" name="someInput" placeholder="Douglas Quaid" required autofocu&gt;</p>
+    <input input type="text" name="name" placeholder="请在这里输入你的名字" autofocu/>
+</div>
+
+<div>
+	<h2>11 Audio 支持 (Audio Support)</h2>
+	<p class="p1">目前我们需要依靠第三方插件来渲染音频。然而在HTML5中，&lt;audio&gt;元素被引进来了：</p>
+    <audio controls="controls" >
+    	<source src="audio/Gee.ogg"/>
+        <source src="audio/Gee.mp3"/>
+        <a href="audio/Gee.mp3">下载这首歌曲</a><!--页面中没有出现-->
+    </audio>
+    <p class="p2">可以右键->音频另存为</p>
+    <p class="p2">当使用&lt;audio&gt;元素时请记得包含两种音频格式。FireFox想要.ogg格式的文件，而Webkit浏览器则需要.mp3格式的。
+    和往常一样，IE是不支持的，且Opera 10及以下版本只支持.wav格式。</p2>
+</div>
+
+<div>
+	<h2>12 Video 支持 (Video Support)</h2>
+	<p class="p1">HTML5中不仅有&lt;audio&gt;元素，而且还有&lt;video&gt;。然而，和&lt;audio&gt;类似，HTML5中并没有指定视频解码器，它留给了浏览器来决定。
+    虽然Safari和Internet Explorer9可以支持H.264格式的视频，Firefox和Opera是坚持开源Theora 和Vorbis格式。因此，指定HTML5的视频时，你必须提供这两种格式。：</p>
+    <video controls preload> 
+		<source src="cohagenPhoneCall.ogv" type="video/ogg; codecs='vorbis, theora'" /> 
+		<source src="cohagenPhoneCall.mp4" type="video/mp4; 'codecs='avc1.42E01E, mp4a.40.2'" /> 
+		<p> Your browser is old. <a href="cohagenPhoneCall.mp4">Download this video instead.</a> </p> 
+	</video>
+</div>
+
+<div>
+	<h2>13 视频预载 (Preload attribute in Videos element)</h2>
+	<p class="p1">当用户访问页面时这一属性使得视频得以预载。为了实现这个功能，可以在&lt;video&gt;元素中加上preload="preload"或者只是preload：</p>
+</div>
+
+<div>
+	<h2>14 显示控制条 (Display Controls)</h2>
+	<p class="p1">如果你使用过上面的每一个提到的技术点，你可能已经注意到，使用上面的代码，视频仅仅显示的是张图片，没有控制条。
+    为了渲染出播放控制条，我们必须在video元素内指定controls属性 ：</p>
+</div>
+
+<div>
+	<h2>15 正规表达式 (Regular Expressions)</h2>
+	<p class="p1">在HTML4或XHTML中，你需要用一些正规表达式来验证特定的文本。而HTML5中新的pattern属性让我们能够在标签处直接插入一个正规表达式：</p>
+    <form action="" method="post"> 
+		<label for="username">Create a Username: </label> 
+    	<input type="text"  name="username"  id="username"  placeholder="4 <> 10"  pattern="[A-Za-z]{4,10}" autofocus required> 
+		<button type="submit">Go </button> 
+	</form>
+    <p class="p2">pattern="[A-Za-z]{4,10}"</p>
+</div>
+</body>
+</html>

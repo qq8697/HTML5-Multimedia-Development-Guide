@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="cn">
+<head>
+<meta charset="utf-8">
+<style>
+#div1 {width:300px;height:200px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script>
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+<p>这是来自于W3C的拖放实例,还需要&lt;meta charset="utf-8"&gt;否则这两行是乱码</p>
+<p>至于会不会打开新的页面和浏览器有关FF会，IE、谷歌不会,苹果的拖不进去</p>
+<p>请把图片拖放到矩形中：</p>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<!--这是可放置元素，drop事件调用drop函数参数为事件本身;dragover事件调用allowDrop函数参数为事件本身-->
+<br />
+<img id="drag1"  src="img/20100328180748-2100392225.jpg" draggable="true" ondragstart="drag(event)"  width="250px" height="150"/>
+<!--这是可拖拽元素，设置draggable="true",开始拖拽事件dragstart调用drag函数参数为事件本身-->
+</body>
+</html>

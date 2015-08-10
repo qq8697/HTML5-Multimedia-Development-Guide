@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background-color:#eeeeee;}
+#outer{
+	margin-left:40px;
+	margin-top:40px;}
+.p1{ font-style:oblique;
+ color:#0000FF;}
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<canvas id="canvas1" width="400" height="400">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    <p class="p1">//设置访问绘图API的上下文</p>
+	<p>var mycanvas=document.getElementById("canvas1");</p>
+	<p>var cntx=mycanvas.getContext('2d');</p>
+	<p class="p1">//设置为某种渐变类型</p>
+	<p>var mygradient=cntx.createLinearGradient(0,100,400,300);</p>
+	<p class="p1">//添加颜色点</p>
+	<p>mygradient.addColorStop("0", "#ff0000");</p>
+	<p>mygradient.addColorStop("1.0", "#0000ff");</p>
+	<p class="p1">//填充图形</p>
+	<p>cntx.fillStyle=mygradient;</p>
+	<p>cntx.fillRect(0,0,400,400);</p>
+    <canvas id="canvas2" width="400" height="400">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+</div>
+<script>
+//设置访问绘图API的上下文
+var mycanvas=document.getElementById("canvas1");
+var cntx=mycanvas.getContext('2d');
+//设置为某种渐变类型
+var mygradient=cntx.createLinearGradient(0,100,400,300);
+//添加颜色点
+mygradient.addColorStop("0", "#ff0000");
+mygradient.addColorStop("1.0", "#0000ff");
+//填充图形
+cntx.fillStyle=mygradient;
+cntx.fillRect(0,0,400,400);
+
+var mycanvas2=document.getElementById("canvas2");
+var cntx2=mycanvas2.getContext('2d');
+//设置为径向渐变
+var mygradient2=cntx2.createRadialGradient(200,200,10,300,300,300,300);
+//添加颜色点
+mygradient2.addColorStop("0", "#ff0000");
+mygradient2.addColorStop("1.0", "#0000ff");
+//填充图形
+cntx2.fillStyle=mygradient2;
+cntx2.fillRect(0,0,400,400);
+</script>
+</body>
+</html>

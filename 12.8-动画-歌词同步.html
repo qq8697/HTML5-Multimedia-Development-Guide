@@ -1,0 +1,221 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Chapter 12</title> 
+<style> 
+#line1{
+	position:absolute;
+	font-size:0em;
+	z-index:1;
+	-moz-animation:showline 2s ease-in-out 0s;
+	-webkit-animation:showline 2s ease-in-out 0s;
+	animation:showline 2s ease-in-out 0s;
+}
+
+#line2{
+	position:absolute;
+	font-size:0em;
+	z-index:1;
+	-moz-animation:showline 2.5s ease-in-out 2;
+	-webkit-animation:showline 2.5s ease-in-out 2s;
+	animation:showline 2.5s ease-in-out 2s;
+}
+
+#line3{
+	position:absolute;
+	font-size:0em;
+	z-index:1;
+	-moz-animation:showline 2s ease-in-out 4.8s;
+	-webkit-animation:showline 2s ease-in-out 4.8s;
+	animation:showline 2s ease-in-out 4.8s;
+}
+
+#line4{
+	position:absolute;
+	font-size:0em;
+	z-index:1;
+	-moz-animation:showline 4s ease-in-out 6.8;
+	-webkit-animation:showline 4s ease-in-out 6.8s;
+	animation:showline 4s ease-in-out 6.8s;
+}
+#word1-1{
+	color:black;
+	-moz-animation:wordColor .5s ease-out 0s;
+	-webkit-animation:wordColor .5s ease-out 0s;
+	animation:wordColor .5s ease-out 0s;
+}
+#word1-2{
+	color:black;
+	-moz-animation:wordColor .5s ease-out .5s;
+	-webkit-animation:wordColor .5s ease-out .5s;
+	animation:wordColor .5s ease-out .5s;
+}
+#word1-3{
+	color:black;
+	-moz-animation:wordColor 1s ease-out 1s;
+	-webkit-animation:wordColor 1s ease-out 1s;
+	animation:wordColor 1s ease-out 1s;
+}
+/*line 2 words */
+#word2-1{
+	color:black;
+	-moz-animation:wordColor .6s ease-out 2s;
+	-webkit-animation:wordColor .6s ease-out 2s;
+	animation:wordColor .6s ease-out 2s;
+}
+#word2-2{
+	color:black;
+	-moz-animation:wordColor .6s ease-out 2.6s;
+	-webkit-animation:wordColor .6s ease-out 2.6s;
+	animation:wordColor .6s ease-out 2.6s;
+}
+#word2-3{
+	color:black;
+	-moz-animation:wordColor .6s ease-out 3.2s;
+	-webkit-animation:wordColor .6s ease-out 3.2s;
+	animation:wordColor .6s ease-out 3.2s;
+}
+
+#word2-4{
+	color:black;
+	-moz-animation:wordColor 1s ease-out 3.8s;
+	-webkit-animation:wordColor 1s ease-out 3.8s;
+	animation:wordColor 1s ease-out 3.8s;
+}
+
+
+#word3-1{
+	color:black;
+	-moz-animation:wordColor .5s ease-out 4.8s;
+	-webkit-animation:wordColor .5s ease-out 4.8s;
+	animation:wordColor .5s ease-out 4.8s;
+}
+#word3-2{
+	color:black;
+	-moz-animation:wordColor .5s ease-out 5.3s;
+	-webkit-animation:wordColor .5s ease-out 5.3s;
+	animation:wordColor .5s ease-out 5.3s;
+}
+#word3-3{
+	color:black;
+	-moz-animation:wordColor 1s ease-out 5.8s;
+	-webkit-animation:wordColor 1s ease-out 5.8s;
+	animation:wordColor 1s ease-out 5.8s;
+}
+#word4-1{
+	color:black;
+	-moz-animation:wordColor .6s ease-out 6.8s;
+	-webkit-animation:wordColor .6s ease-out 6.8s;
+	animation:wordColor .6s ease-out 6.8s;
+}
+#word4-2{
+	color:black;
+	-moz-animation:wordColor .6s ease-out 7.4s;
+	-webkit-animation:wordColor .6s ease-out 7.4s;
+	animation:wordColor .6s ease-out 7.4s;
+}
+#word4-3{
+	color:black;
+	-moz-animation:wordColor .6s ease-out 8s;
+	-webkit-animation:wordColor .6s ease-out 8s;
+	animation:wordColor .6s ease-out 8s;
+}
+
+#word4-4{
+	color:black;
+	-moz-animation:wordColor 2s ease-out 8.6s;
+	-webkit-animation:wordColor 2s ease-out 8.6s;
+	animation:wordColor 2s ease-out 8.6s;
+}
+
+@-webkit-keyframes wordColor{
+	0% {color:black;}
+	1% {color:red;}
+	99% {color:red;}
+	100% {color:black;}
+}
+
+@-moz-keyframes wordColor{
+	0% {color:black;}
+	1% {color:red;}
+	99% {color:red;}
+	100% {color:black;}
+}
+
+@keyframes wordColor{
+	0% {color:black;}
+	1% {color:red;}
+	99% {color:red;}
+	100% {color:black;}
+}
+
+@-webkit-keyframes showline{
+0% {font-size:0em;z-index:1;}
+1% {font-size:2em;z-index:10;}
+99% {font-size:2em;z-index:10;}
+100% {font-size:0em;z-index:1;}
+}
+
+@-moz-keyframes showline{
+0% {font-size:0em;z-index:1;}
+1% {font-size:1em;z-index:10;}
+99% {font-size:1em;z-index:10;}
+100% {font-size:0em;z-index:1;}
+}
+
+@keyframes showline{
+0% {font-size:0em;z-index:1;}
+1% {font-size:1em;z-index:10;}
+99% {font-size:1em;z-index:10;}
+100% {font-size:0em;z-index:1;}
+}
+
+#line2{
+	position:absolute;
+	font-size:0;
+	z-index:2;
+}
+
+#line3{
+	position:absolute;
+	font-size:0;
+	z-index:3;
+}
+
+#line4{
+	position:absolute;
+	font-size:0;
+	z-index:4;
+}
+</style> 
+
+</head> 
+<body onload="document.getElementById('audio1').play();">
+<div>
+  <h1>Gee...</h1>
+  <p>歌词同步载入，骗你哒，哪有那么多时间去对一个听不懂的歌词</p>
+  <p>我就是这么任性，就是要看大长腿</p>
+  <br><br>
+  <audio id="audio1">
+  	<source src="audio/Gee.ogg" type="audio/ogg" />
+  	<source src="audio/Gee.mp3" type="audio/mpeg" />
+  	<source src="audio/Gee.wav" type="audio/wav" />  
+	你的浏览器过时了
+  </audio>
+  <br><br>
+</div>
+<div id="line1">
+<p><span id="word1-1">A-ha!</span> <span id="word1-2">listen</span> <span  id="word1-3">boy</span></p>
+</div> 
+<div id="line2">
+<p><span id="word2-1">my</span> <span id="word2-2">first</span> <span id="word2-3">love</span> <span id="word2-4">story </span></p>
+</div> 
+<div id="line3">
+<p><span id="word3-1">my</span> <span id="word3-2">angel</span> <span  id="word3-3">I'm a girl</span></p>
+</div>
+<div  id="line4">
+<p><span id="word4-1">my sunshine</span> <span id="word4-2">oh</span> <span id="word4-3">oh</span> <span id="word4-4">let's go</span></p>
+</div>
+</body> 
+</html> 

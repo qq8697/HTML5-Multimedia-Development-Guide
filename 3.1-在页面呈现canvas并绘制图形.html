@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{background-color:#eeeeee;}
+#outer{ 
+margin-left:40px;
+margin-top:40;
+width:410px;
+text-align:center;
+}
+#canvas1{
+	width:400px;
+	height:400px;
+	background-color:blue;
+	border: 5px red solid;}
+.p1{
+	font-style:oblique;
+	color:#00F;}
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<h2>在页面呈现canvas并绘制图形</h2>
+	<canvas id="canvas1">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+    </canvas>
+    <p class="p1">获得canvas的绘图上下文</p>
+    <p>var mycanvas=document.getElementById("canvas1");</p>
+	<p>var cntx=mycanvas.getContext('2d');</p>
+    <p class="p1">canvas上的绘制办法</p>
+    <p>Stroke绘制边框轮廓</p>
+    <p>Fill填充内部区域</p>
+    <p class="p1">设置填充颜色、填充位置和尺寸</p>
+    <p>cntx.fillStyle='rgb(255,0,255)';</p>
+	<p>cntx.fillRect(30,30,400,400);</p>
+    <p class="p1">rgba颜色模式（颜色值放在单引号内），参数a代表alpha通道，表示透明度，0.25表示25%可见</p>
+    <p>cntx.fillStyle='rgba(255,0,255,0.25)';</p>
+</div>
+<script>
+//获得绘图上下文
+var mycanvas=document.getElementById("canvas1");
+var cntx=mycanvas.getContext('2d');
+//设置填充颜色、位置和尺寸
+cntx.fillStyle='rgb(255,0,255)';
+cntx.fillRect(30,30,400,400);
+cntx.fillStyle='rgba(0,255,255,0.5)';
+cntx.fillRect(60,60,200,200);
+cntx.fillStyle='rgba(0,0,0,0.25)';
+cntx.fillRect(90,90,400,400);
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background-color:#eeeeee;}
+#outer{
+	margin-left:40px;
+	margin-top:20px;}
+#canvas1{
+	border:5px blue solid;
+	background-color:#FFFFFF;
+    }
+</style>
+</head>
+
+<body>
+<div id="outer">
+	蒙德里安风格的艺术画<br/>
+	<canvas id="canvas1" width="500" height="500" onClick="create_images()">//方法不要放了加括号
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+ 	<form>
+	设置水平线条的数量：
+   	 <select id="h_border_count" name="h_border_count">
+    	 <option value="1">1</option>
+      	 <option value="2" selected>2</option>
+       	 <option value="3">3</option>
+         <option value="4">4</option>
+   	 </select>
+    <br/>
+    设置垂直线条的数量：
+     <select id="v_border_count" name="v_border_count" >
+    	<option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+    </select>
+</form>  
+</div>
+<script>
+var mycanvas=document.getElementById("canvas1");
+var cntx=mycanvas.getContext('2d');
+function create_images(){
+	mycanvas.width=mycanvas.width;//这句话很重要，用于清除画布，否则前一次的效果还会遗留
+	cntx.lineWidth="2";
+	cntx.strokeStyle='rga(0,0,0)';//"black"
+	
+	h_line_1=0;//方法一记录每一条线的位置
+	h_line_2=0;
+	h_line_3=0;
+	h_line_4=0;
+	var v_line=[0,0,0,0];//方法二记录每一条线的位置
+	
+	var h=document.getElementById("h_border_count").value;
+	var v=document.getElementById("v_border_count").value;
+
+	for(i=0;i<h;i++){
+		rndh=(Math.floor(Math.random()*500));
+		rndwidth=(Math.floor(Math.random()*20));
+		cntx.lineWidth=rndwidth;
+		cntx.beginPath();
+		cntx.moveTo(0,rndh);
+		cntx.lineTo(500,rndh);
+		cntx.closePath();
+		cntx.stroke();
+		
+		if(i==0){h_line_1=rndh;}//方法一记录每一条线的位置
+		if(i==1){h_line_2=rndh;}
+		if(i==2){h_line_3=rndh;}
+		if(i==3){h_line_4=rndh;}
+		}
+		
+	for(j=0;j<v;j++){
+		rndv=(Math.floor(Math.random()*500));
+		rndwidth=(Math.floor(Math.random()*20));
+		cntx.lineWidth=rndwidth;
+		cntx.beginPath();
+		cntx.moveTo(rndv,0);
+		cntx.lineTo(rndv,500);
+		cntx.closePath();
+		cntx.stroke();
+		
+		v_line[j]=rndv;//方法二记录每一条线的位置
+		}
+		//寻找最大、最小值
+		var maxh=Math.max(h_line_1,h_line_2,h_line_3,h_line_4);
+		var maxv=Math.max(v_line[1],v_line[2],v_line[3],v_line[0]);//注意下标，数组下标从0开始
+		var minh=Math.min(h_line_1,h_line_2,h_line_3,h_line_4);
+		var minv=Math.min(v_line[1],v_line[2],v_line[3],v_line[0]);
+		//填充颜色
+		cntx.fillStyle='rgb(255,255,0)';
+		cntx.fillRect(0,0,minv,minh);//择行和列的数量不满时，左上角涂不了色
+		cntx.fillStyle='rgb(255,0,0)';
+		cntx.fillRect(maxv,maxh,500,500);
+		
+}
+</script>
+<p style="color:#0000FF">mycanvas.width=mycanvas.width;//这句话很重要，用于清除画布，否则前一次的效果还会遗留<p>
+<p style="color:#0000FF">cntx.fillStyle='rgb(255,255,0)';<br/>
+		cntx.fillRect(0,0,minv,minh);//择行和列的数量不满时，左上角涂不了色</p>
+</body>
+</html>

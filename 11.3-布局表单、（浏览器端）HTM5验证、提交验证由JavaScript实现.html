@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+label{
+	display:inline-block;
+	float:inherit;
+	width:7em;}
+	
+input:invalid {
+ background-position:right center;
+ background-repeat:no-repeat;
+ background-image: url(img/cuo.jpg);
+}
+
+input:required:valid{
+ background-position:right center;
+ background-repeat:no-repeat;
+ background-image:url(img/dui.jpg);
+}
+
+input[type=number]{
+	text-align:right;
+}
+input[type=number]:invalid:out-of-range, input[type=number]:invalid {
+	 background-position:left center;
+ background-repeat:no-repeat;
+ background-image:url(img/cuo.jpg);
+}
+
+input[type=number]:valid:in-range{
+	 background-position:left center;
+ background-repeat:no-repeat;
+ background-image:url(img/dui.jpg);
+}
+#contactFields p #contactTel {
+	width: 120px;
+}
+</style>
+<script>
+function checkForm(){
+	if(typeof contact.checkValidity == "undefined"){
+		//在非HTML5兼容浏览器中检查数据的有效性
+		validForm = true;
+		if(!contact.contactName.value)//contact表单的name
+		{
+			alert("Please enter a name");
+			contact.contactName.focus();
+			return;
+		}
+		
+		if(!contact.contactCompany.value)
+		{
+			alert("Please enter a company name");
+			contact.contactCompany.focus();
+			return;
+		}
+		//与正则表达式匹配
+		var phoneRegEx = /^\D?(\d{3})\D?\D?(\d{4})\D?(\d{4})$/;
+		if(!contact.contactPhone.value.match(phoneRegEx)){
+			alert("Please enter a phone number");
+			contact.contactPhone.focus();
+			return;
+		}
+		
+		var emailRegEx = /^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/;
+		if(!contact.contactEmail.value.match(emailRegEx)){
+			alert("Please enter an email address");
+			contact.contactEmail.focus();
+			return;
+		}
+		
+		if(isNaN(contact.contactPriority.value) || !contact.contactPriority.value)
+		{
+			alert("Please enter a priority between 1 and 10");
+			contact.contactPriority.focus();
+			return;
+		}
+		var priority = parseInt(contact.contactPriority.value);
+		
+		if(priority < 1 || priority > 10)
+		{
+			alert("Please enter a priority between 1 and 10");
+			contact.contactPriority.focus();
+			return;
+		}
+		contact.submit();
+	}
+	else{
+	//支持HTML5的浏览器
+		validForm = contact.checkValidity();
+		if(contact.checkValidity()==true){
+			contact.submit();
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<form method="post" action="#" name="contact">
+	<fieldset id="contactFields">
+    	<legend>联系信息</legend>
+        <p><label for="contactName">联系人姓名</label>
+        	<input type="text" placeholder="武宏斌" id="contactName" name="contactName" autofocus maxlength="50" size="50" required></p>
+        <p><label for="contactCompany">公司名称</label>
+        	<input type="text" placeholder="中国传媒大学" id="contactCompany" name="contactCompany" maxlength="50" size="50" required></p>
+        <p><label for="contactTel">电话号码</label>
+        	<input type="tel" placeholder="###-########" id="contactTel" name="contactTel" maxlength="11" size="11" 
+             required pattern="^\D?(\d{3})\D?\D?(\d{4})\D?(\d{4})$"></p>
+        <p><label for="contactMail">email</label>
+        	<input type="email" placeholder="emailName@company.com" id="contactMail" name="contactMail" maxlength="100" size="50"
+             required pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$"></p>
+        <p><label for="contactPriority">priority</label>
+        <input type="number" id="contactPriority" name="contactPriority" max="10" min="1" placeholder="##" maxlength="2" size="3"></p>
+        <button onClick="checkForm()">添加</button>
+    </fieldset>
+</form>
+</body>
+</html>

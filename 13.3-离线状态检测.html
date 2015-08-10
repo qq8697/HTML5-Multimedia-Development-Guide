@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>检测离线状态</title>
+<script>
+function setupListeners(){
+	window.addEventListener('offline',function(e){alert("offline");},false)
+	window.addEventListener("online",function(e){alert("online");},true)
+	}
+</script>
+</head>
+<body onLoad="setupListeners()">
+<h1>检测离线状态</h1>
+<p onClick="alert(navigator.onLine);">点击这里，查看离线状态</p>
+</body>
+</html>

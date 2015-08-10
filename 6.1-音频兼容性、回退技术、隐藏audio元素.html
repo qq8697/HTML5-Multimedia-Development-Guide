@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#video1 {
+	background-image: url(img/9a504fc2d5628535099b7cb390ef76c6a7ef632d.jpg);
+	border: 15px ridge #c3eefd;
+}
+#video2 {
+	background-color: #00F;
+	border: 5px dotted #00ff00;
+}
+#video3 {
+	height: 20px;
+	width: 50px;
+	border-top-color: #F00;
+	border-right-color: #F00;
+	border-bottom-color: #F00;
+	border-left-color: #F00;
+}
+</style>
+</head>
+
+<body onLoad="playmusic()">
+<div id="first">
+	<p>测试网站对audio元素的兼容性</p>
+    <audio id="video1" controls="controls" src="audio/Gee.ogg"><!--controls="controls"-->
+    	你的浏览器不支持audio元素 <!--canvas和audion需要这么一行文本-->
+    </audio>
+    <audio id="video2" controls="controls" src="audio/Gee.mp3">
+    	你的浏览器不支持audio元素 
+    </audio>
+    <audio id="video3" controls="controls" src="audio/Gee.wav">
+    	你的浏览器不支持audio元素 
+    </audio>
+</div>
+<div id="next">
+	<p>回退技术（这里的audio是没有加css样式的）</p>
+    <audio id="video4" controls><!--只写controls也行-->
+    	<source src="audio/Gee.ogg" type="audio/ogg"><!--注意audio与video的type的不同-->
+        <source src="audio/Gee.oga" type="audio/ogg"><!--Ogg版本的音频的2个扩展名的文件-->
+        <source src="audio/Gee.mp3" type="audio/mp3">
+        <source src="audio/Gee.wav" type="audio/wav">
+        你的浏览器不支持audio元素
+    </audio>
+</div>
+<div id="last">
+	<p>隐藏audio播放器（即没有controls属性,设置页面载入时让其自动播放）</p>
+    <audio id="video5">
+    	<source src="audio/Gee.ogg" type="audio/ogg">
+        <source src="audio/Gee.oga" type="audio/ogg">
+        <source src="audio/Gee.mp3" type="audio/mp3">
+        <source src="audio/Gee.wav" type="audio/wav">
+        你的浏览器不支持audio元素
+    </audio>
+    <img src="img/9a504fc2d5628535099b7cb390ef76c6a7ef632d.jpg" width="160" height="100" onClick="stopmusic()" alt="停止音乐"/>
+</div>
+<script>
+function playmusic(){
+	myaudio=document.getElementById("video5");
+	myaudio.play();
+	}
+function stopmusic(){
+	myaudio=document.getElementById("video5");
+	myaudio.pause();
+	}
+</script>
+</body>
+</html>

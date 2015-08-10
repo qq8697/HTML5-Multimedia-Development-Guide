@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background-color:#eeeeee;}
+#outer{
+	margin-left:40px;
+	margin-top:40px;}
+#canvas1{
+	border:3px red solid;
+	background-color:#FFFFFF;
+    }
+#canvas2{
+	border:3px blue solid;
+	background-color:#FFFFFF;
+    }
+#canvas3{
+	border:3px green solid;
+	background-color:#FFFFFF;
+    }
+#canvas4{
+	border:3px orange solid;
+	background-color:#FFFFFF;
+    }
+#c1 {
+	position: absolute;
+	left:50px;
+	top:50px;
+}
+#c2 {
+	position: absolute;
+	left:50px;
+	top:350px;
+}
+#c3 {
+	position: absolute;
+	left:350px;
+	top:50px;
+	}
+#c4 {
+	position: absolute;
+	left:350px;
+	top:350px;
+}
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<div id="c1">
+	<canvas id="canvas1" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+    <div id="c2">
+	<canvas id="canvas2" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+    <div id="c3">
+	<canvas id="canvas3" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+    <div id="c4">
+	<canvas id="canvas4" width="200" height="200">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    </div>
+</div>
+<script>
+var mycanvas1=document.getElementById("canvas1");
+var cntx1=mycanvas1.getContext('2d');
+var mycanvas2=document.getElementById("canvas2");
+var cntx2=mycanvas2.getContext('2d');
+var mycanvas3=document.getElementById("canvas3");
+var cntx3=mycanvas3.getContext('2d');
+var mycanvas4=document.getElementById("canvas4");
+var cntx4=mycanvas4.getContext('2d');
+
+cntx1.lineWidth=1;
+cntx2.lineWidth=2;
+cntx3.lineWidth=1;
+cntx4.lineWidth=2;
+
+function animate(){
+for(i=0;i<=200;i+=20){
+	for(j=0;j<=200;j+=20){
+		cntx1.beginPath();
+		cntx2.beginPath();
+		cntx3.beginPath();
+		cntx4.beginPath();
+		
+		cntx1.arc(i,j,10,0,Math.PI*2,true);
+		cntx2.arc(i,j,10,0,Math.PI,true);
+		cntx3.moveTo(i,j);
+		cntx3.lineTo(100,100);
+		cntx4.moveTo(i,j);
+		cntx4.lineTo(j,i);
+		
+		cntx1.closePath();
+		cntx2.closePath();
+		cntx3.closePath();//3,4可以没有closePath，因为有moveTo,
+		cntx4.closePath();//可以单独使用beginPath，（如果不用，则都使用最后一次的颜色,而不是五彩冰粉的效果）
+						
+		rnd1=(Math.floor(Math.random()*255));
+		rnd2=(Math.floor(Math.random()*255));
+		rnd3=(Math.floor(Math.random()*255));
+		
+		cntx1.strokeStyle='rgb('+rnd1+','+rnd2+','+rnd3+')';
+		cntx2.strokeStyle='rgb('+rnd1+','+rnd2+','+rnd3+')';
+		cntx3.strokeStyle='rgb('+rnd1+','+rnd2+','+rnd3+')';
+		cntx4.strokeStyle='rgb('+rnd1+','+rnd2+','+rnd3+')';
+		
+		cntx1.stroke();
+		cntx2.stroke();
+		cntx3.stroke();
+		cntx4.stroke();
+		}
+	}
+}
+setInterval(animate,100);//100毫秒
+</script>
+</body>
+</html>

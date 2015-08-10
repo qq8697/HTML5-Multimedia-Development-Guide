@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function(){
+	document.getElementById("colorpick").onchange=function(){
+		document.bgColor=this.value;
+		}
+	}
+function display(value){
+	document.getElementById("datepick").innerHTML=value;
+	}
+</script>
+</head>
+
+<body>
+<form id="form111" name="form111" action="" method="post">
+	<fieldset>
+    	<legend>这是标题</legend>
+       	<h2>1 颜色拾取器</h2>
+        <p>请选择一个颜色，它将会改变文档的背景色</p>
+        <input type="color" id="colorpick" name="colorpick"/>
+        <h2>2 日期和时间空间</h2>
+        <p id="datepick"></p>
+        <label>选择date</label>
+        <input type="date" name="date1" id="date1" onChange="display(date.value)"/><br/><br/>
+        <label>选择datetime</label>
+        <input type="datetime" name="datetime1" id="datetime1" onChange="display(datetime1.value)"/><br/><br/>
+        <label>选择datetime-local</label>
+        <input type="datetime-local" name="datetime-local1" id="datetimelocal1"onChange="display(datetime-local1.value)"/><br/><br/>
+        <label>选择month</label>
+        <input type="month" name="month1" id="month1"onChange="display(month1.value)"/><br/><br/>
+        <label>选择week</label>
+        <input type="week" name="week1" id="week1"onChange="display(week1.value)"/><br/><br/>
+        <label>选择time</label>
+        <input type="time" name="time1" id="time1"onChange="display(time1.value)"/><br/><br/>
+        <h2>3 email和URL</h2>
+        <p>都呈现为文本框</p>
+        e-main<input type="email" maxlength="20"><br/><br/>
+        URL<input type="url" maxlength="50">
+        <h2>4 number和range</h2>
+        Range control <input type="range" max="100" min="0" step="5" maxlength="3" value="50" id="range1" name="range1"><br/><br/>
+        Number control<input type="number" max="50" min="-50" step="3" maxlength="3" value="0" id="number1" name="number1">
+        <h2>5 search</h2>
+        <h2>6 电话号码输入框</h2>
+    </fieldset>
+</form>
+</body>
+</html>

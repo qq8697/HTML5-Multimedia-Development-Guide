@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="thanks"></div>
+<div id="first">
+	<p>1	audio元素的play、paus、ended事件</p>
+    <audio id="audio1" controls onPlay="show()" onPause="hide()" onEnded="thanks()">
+    	<source src="audio/Gee.ogg" type="audio/ogg">
+        <source src="audio/Gee.oga" type="audio/ogg">
+        <source src="audio/Gee.mp3" type="audio/mp3">
+        <source src="audio/Gee.wav" type="audio/wav">
+        你的浏览器不支持audio元素
+    </audio>
+</div>
+<img src="img/221802068800ee0.jpg" id="img1" width="480" height="270" style="visibility:hidden"/>
+
+<div id="last">
+	<p>2	隐藏的背景音乐，用其他元素控制播放与暂停</p>
+	<button  type="button" onClick="play()" onDblClick="pause()">单击播放/双击暂停</button>
+     <audio id="audio2">
+    	<source src="audio/Gee.ogg" type="audio/ogg">
+        <source src="audio/Gee.oga" type="audio/ogg">
+        <source src="audio/Gee.mp3" type="audio/mp3">
+        <source src="audio/Gee.wav" type="audio/wav">
+        你的浏览器不支持audio元素
+    </audio>
+</div>
+<script>
+function show(){//audio元素播放时显示图片
+	document.getElementById("img1").style.visibility="visible";
+		}
+function hide(){//audio元素暂停时隐藏图片
+	document.getElementById("img1").style.visibility="hidden";
+	}
+function thanks(){//audio元素结束时出现谢谢倾听
+	document.getElementById("thanks").innerHTML="<h2>谢谢倾听（播放完后出现）</h2>";
+	}
+function play(){//单击按钮播放背景音乐
+	document.getElementById("audio2").play();
+	}
+function pause(){//双击按钮暂停背景音乐
+	document.getElementById("audio2").pause();//是pause方法不是stop（）方法
+	}
+</script>
+</body>
+</html>

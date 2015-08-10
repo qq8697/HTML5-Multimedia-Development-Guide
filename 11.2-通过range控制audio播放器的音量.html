@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function changeVolume(audio,level){
+	//设置audio音量大小，volume属性取值范围是0-1，而range只返回整数，所以level/100
+	//滑动控件不会显示与之关联的值，这里使用label标签来显示滑动块中选取的值
+	audio.volume=(level/100);
+	document.getElementById("volumelevel").innerHTML=level+"%";
+	}
+function playmusic(){
+	//播放时，pause和start over按钮启用，play按钮替换为resume并禁用
+	document.getElementById("audio1").play();
+	document.getElementById("play").innerHTML="Resume";
+	document.getElementById("pause").disabled=false;
+	document.getElementById("startover").disabled=false;
+	document.getElementById("play").disabled=true;
+	}
+function pauseplay(audio){
+	//用户点击pause按钮，pause将变为禁用，resume按钮将被启用
+	audio.pause();
+	document.getElementById("play").disabled=false;;
+	document.getElementById("pause").disabled=true;
+	}
+function setStartPoint(audio,seconds){
+	//start over将暂停播放，重置play按钮，禁用其他按钮，并从0开始播放
+	audio.currentTime=seconds;
+	audio.pause();
+	document.getElementById("play").innerHTML="play";
+	document.getElementById("pause").disabled=true;
+	document.getElementById("startover").disabled=true;
+	document.getElementById("play").disabled=false;
+	}
+</script>
+</head>
+
+<body onLoad="document.getElementById('audio1')volume=0.5;">
+<h1>使用range控件控制audio播放</h1>
+<audio id="audio1">
+     <source src="audio/Gee.ogg" type="audio/ogg"><!--注意audio与video的type的不同-->
+     <source src="audio/Gee.oga" type="audio/ogg"><!--Ogg版本的音频的2个扩展名的文件-->
+     <source src="audio/Gee.mp3" type="audio/mp3">
+     <source src="audio/Gee.wav" type="audio/wav">
+        你的浏览器不支持audio元素
+   </audio>
+<form name="formvolume" id="formvolume">
+<input type="range" id="volume" name="volume" min="0" max="100" value="50" step="5" 
+	maxlength="3" onChange="changeVolume(audio1,volume.value);"/>
+<label for="volume" id="volumelevel">50%</label>
+</form>
+<button id="play" onClick="playmusic();">Play</button>
+<button id="pause" disabled onClick="pauseplay(audio1);">Pause</button>
+<button id="startover" disabled onClick="setStartPoint(audio1,0);">Statr oveer</button>
+</body>
+</html>

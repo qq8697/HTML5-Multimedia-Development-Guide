@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{background-color:#eeeeee;}
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<p>移动的渐变效果-效果类似于围绕一个打开的管道、移动你的位置以更好的观看管道里的东西时所看到的效果。</p>
+	<canvas id="canvas1" width="400" height="400">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+</div>
+<script>
+var mycanvas=document.getElementById("canvas1");
+var cntx=mycanvas.getContext('2d');
+var z=10;
+var direction=1;
+function gradient(){
+	if(z==0){
+		direction=1;
+		}
+	if(z==300){
+		direction=0;
+		}
+	if(direction==0){
+		z-=10;
+		}
+	if(direction==1){
+		z+=10;
+		}
+		mygradient=cntx.createRadialGradient(200,200,10,300,z,300);
+		mygradient.addColorStop("0","green");
+		mygradient.addColorStop("1.0","yellow");
+		cntx.fillStyle=mygradient;
+		cntx.fillRect(0,0,400,400);//没有用“路径”画出范，围不能使用fill（）或者stroke（）方法
+	}
+setInterval(gradient,100);
+</script>
+</body>
+</html>

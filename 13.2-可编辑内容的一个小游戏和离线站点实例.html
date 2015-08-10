@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html lang="en" manifest="offline.manifest"> 
+<head> 
+<meta charset="utf-8"> 
+<title>可编辑内容的小游戏和离线实例</title> 
+<style> 
+.wall{
+	width:25em;
+}
+</style> 
+<script>
+function readList(){
+	var content = document.getElementById("list").innerHTML;
+	var songs = content.split("<li>");
+	var rightSongs = new Array("安静","东风破","简单爱","可爱女人");
+	var right=0;
+	var ltp;
+	for(var s in songs){
+		ltp= songs[s].indexOf("<");	
+		songs[s] = songs[s].substring(0,ltp);
+		if(songs[s] == rightSongs[s -1]){
+			right ++;
+		}
+	}
+
+	if(right == 4){
+		document.getElementById("correct").innerHTML = "厉害呀，你全答对了";
+	}
+	else{
+	document.getElementById("correct").innerHTML = "哦，很遗憾你答对 " + right + " 题！";
+	}
+}
+
+function palym() {
+ document.getElementById("audio1").play();
+}
+function pausem() {
+ document.getElementById("audio1").pause();
+}
+</script>
+</head> 
+<body> 
+<h1>写出你听到的歌曲</h1>
+ <audio id="audio1" preload="auto"><!--不包含control属性，不会显示在页面上-->
+  <source src="audio/music.ogg" type="audio/ogg" />
+  <source src="audio/music.mp3" type="audio/mpeg" />
+  <source src="audio/music.wav" type="audio/wav" />  
+你的浏览器不支持音频元素
+  </audio>
+</div>
+<button onClick="palym()" style="width:80px">play</button>
+<button onClick="pausem()" style="width:80px">pause</button>
+<p>点击play按钮开始播放音乐，从以下歌曲中按你听到的顺序填入下面的列表中<br/>
+安静、东风破、简单爱、可爱女人</p>
+<p style="font-size:1.5em;">确定后请单击计分按钮</p>
+
+ <section id="list" class="wall" contenteditable="true">
+    <ol>
+        <li>Song</li>
+        <li>Song</li>
+        <li>Song</li>
+        <li>Song</li>
+    </ol>
+ </section>
+<button style="width:160px" onClick="readList();">计分</button>
+ <div id="correct">
+ &nbsp;
+ </div>
+</body> 
+</html> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

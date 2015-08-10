@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ background-color:#eeeeee;}
+#outer{
+	margin-left:40px;
+	margin-top:40px;}
+#canvas1{
+	border:3px red solid;
+	background-color:#FFFFFF;
+    }
+</style>
+</head>
+
+<body>
+<div id="outer">
+	<canvas id="canvas1" width="400" height="400">
+    你的浏览器不支持canvas！请尝试其他浏览器。
+	</canvas>
+    <p>绘制房屋和两个窗子的边框-stroke</p>
+    <p>绘制窗格-stroke</p>
+    <p>绘制房屋的门-fill</p>
+    <p>绘制拉手-白色圆形-fill</p>
+</div>
+<script>
+var mycanvas=document.getElementById("canvas1");
+var cntx=mycanvas.getContext('2d');
+cntx.lineWidth=4;//"4"
+//绘制房屋和两个窗子的边框-stroke
+cntx.beginPath();
+drawfram(40,40,40,360,360,360,360,40);
+drawfram(100,100,100,180,180,180,180,100);
+drawfram(220,100,220,180,300,180,300,100);
+cntx.closePath();
+cntx.stroke();
+//绘制窗格-stroke
+cntx.beginPath();
+drawwindow(100,140,180,140,140,100,140,180);
+drawwindow(220,140,300,140,260,100,260,180);
+cntx.closePath();
+cntx.strokeStyle="blue";
+cntx.stroke();
+//绘制房屋的门-fill
+cntx.beginPath();
+drawfram(160,360,160,260,240,260,240,360);
+cntx.closePath();
+cntx.fillStyle="gray";
+cntx.fill();
+//绘制拉手-白色圆形
+cntx.beginPath();
+cntx.arc(220,310,5,0,Math.PI*2,true);
+cntx.closePath();
+cntx.fillStyle="white";//#ffffff
+cntx.fill();
+function drawfram(a,b,c,d,e,f,g,h){
+	cntx.moveTo(a,b);
+	cntx.lineTo(c,d);
+	cntx.lineTo(e,f);
+	cntx.lineTo(g,h);
+	cntx.lineTo(a,b);
+	}
+function drawwindow(a,b,c,d,e,f,g,h){
+	cntx.moveTo(a,b);
+	cntx.lineTo(c,d);
+	cntx.moveTo(e,f);
+	cntx.lineTo(g,h);
+	}
+</script>
+</body>
+</html>

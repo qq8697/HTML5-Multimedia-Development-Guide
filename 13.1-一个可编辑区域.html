@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>一个可编辑区域</title>
+<style type="text/css">
+.ct {
+	width: 25em;
+	margin:0;
+}
+.ct:focus{
+	border:#0CF 1px solid;}
+</style>
+<script>
+function readct()
+{	alert("r");
+	var ct=document.getElementById("ctin").innerHTML;
+	document.getElementById("ctout").innerHTML=ct;	
+}
+function storect()
+{	alert("s");
+	var ctdetail=document.getElementById("ctin").innerHTML;
+	localStorage.setItem("ct",ctdetail);
+}
+function getct()
+{
+	var ctdetail=localStorage.getItem("ct");
+	if(ctdetail==null)
+	{
+		document.getElementById("ctin").innerHTML="祝你生日快乐";
+	}
+	else
+	{
+		document.getElementById("ctin").innerHTML=ctdetail;	
+	}
+}
+</script>
+</head>
+
+<body onLoad="getct()">
+<h1>写下你下说的祝福</h1>
+<section id="ctin" class="ct" contenteditable="true">祝你生日快乐
+</section><br/><br/>
+<button onClick="readct();storect();">完成并保存</button><br/><br/>
+<section id="ctout" class="ct"></section>
+</body>
+</html>

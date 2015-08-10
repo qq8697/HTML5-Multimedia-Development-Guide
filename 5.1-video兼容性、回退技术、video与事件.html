@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+#video1 {
+	border: 16px ridge #FF0;
+}
+</style>
+</head>
+
+<body>
+<div id="first">
+	<p>测试兼容性的</p>
+	<video controls width="200" height="150" loop>
+    	<source src="vedio/Gee.ogv">
+    </video>
+    <video controls width="200" height="150" loop>
+    	<source src="vedio/Gee.webm">
+    </video>
+    <video controls width="200" height="150" loop>
+    	<source src="vedio/Gee.mpeg">
+    </video>
+</div>
+<div id="next">
+	<p>回退与设置MIME类型</p><!--设置MIME类型没看出来啥效果-->
+    <video width="200" height="150" loop poster="img/20100328180748-2100392225.jpg" controls>
+    	<source src="vedio/Gee.webm" type='video/webm; codecs="vp8,vorbis"'><!--单双引号的顺序很重要-->
+        <source src="vedio/Gee.mpeg">
+    	<source src="vedio/Gee.ogv"  type='video/odd; codecs="theora,vorbis"'>
+    </video>
+</div>
+<div id="last">
+	<p>事件（没有controls，由单双击控制播放与暂停）</p><!--按双击是全屏-->
+    <video id="video1" width="400" height="300" onDblClick="controlme()" preload="auto" autoplay>
+    	<source src="vedio/Gee.webm">
+    </video>
+</div>
+<script>
+var i=0;
+var vid=document.getElementById("video1");
+function controlme(){
+	if(i==0){
+		vid.pause();
+		i=1;
+	}
+	else{
+		vid.play();
+		i=0;
+		}
+}
+</script>
+</body>
+</html>
